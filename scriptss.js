@@ -1,9 +1,9 @@
-const api=(()=>{
+const Api=(()=>{
 
     baseUrl='http://localhost:4232/posts/1'
     todospath='todos ';
 
-getTodos=()=>{
+getTodos=()=>
 fetch([baseUrl,todospath].join('/')).then((response) => response.json()
 );
   //.then(json => console.log(json))
@@ -12,28 +12,42 @@ deleteTodo=(id)=>{};
 
 return {
     getTodos,
-deleteTodo,};
-}})()
+deleteTodo};
+})();
 
 //api().getTodos( )
 
 
 
 /* ~~~~~~~~~~~~~~~~ View ~~~~~~~~~~~~~~~~ */
-const view=(()=>{
+const View=(()=>{
 
    return{}
   
-   })
+   })()
   
   
 
 
 /* ~~~~~~~~~~~~~~~~ Model ~~~~~~~~~~~~~~~~ */
 
+const Model = ((api) => {
+    const { getTodos, deleteTodo } = api;
+  
+    return {
+      getTodos,
+      deleteTodo,
+    
+    };
+  })(Api);
+  
 
-const model=((api)=>{
-   const {getTodos,deleteTodo}=api;
+
+
+/*
+const Model=((api)=>{
+    const { getTodos, deleteTodo } = api;
+   //const {getTodos, deleteTodo}= api;
    //const deleteTodo=api.deleteTodo;
 
    return{
@@ -41,16 +55,14 @@ const model=((api)=>{
 getTodos,
 deleteTodo
 
-   }
+   }})(Api)
   
-   })(api)
-  
-  
+  */
 
 
 /* ~~~~~~~~~~~~~~~~ Controller ~~~~~~~~~~~~~~~~ */
 
-const controller=(()=>{
+const controller=((model)=>{
 const init=()=>{
    model.getTodos().then(console.log)
 }
@@ -60,9 +72,9 @@ const init=()=>{
        init
    }
   
-   })()
+   })(Model)
   
-   controller.init()
+   controller.init();
 /*
 class Api{
 
