@@ -21,8 +21,28 @@ deleteTodo};
 
 /* ~~~~~~~~~~~~~~~~ View ~~~~~~~~~~~~~~~~ */
 const View=(()=>{
+    const domstr={classlist:"#nonselected_containter"}
+const render=(ele,tmp)=>{
+    ele.innerHTML=tmp
+}
 
-   return{}
+const createTmp=arr=>{
+    let tmp=''
+    arr.forEach(todo=>{
+        tmp+=`              <li>
+        <span>${todo.title}</span>
+        <button>X</button>
+      </li>
+        `
+    })
+    return tmp;
+}
+
+   return{render,
+    domstr,
+    createTmp
+
+   }
   
    })()
   
@@ -62,9 +82,15 @@ deleteTodo
 
 /* ~~~~~~~~~~~~~~~~ Controller ~~~~~~~~~~~~~~~~ */
 
-const controller=((model)=>{
+const controller=((model,view)=>{
 const init=()=>{
-   model.getTodos().then(console.log)
+    const todolist=document.querySelector(view.domstr.classlist)
+
+    //console.log(todolist)
+   model.getTodos().then(todos=>{
+    const tmp=view.createTmp(todos);
+   view.render(todolist,tmp)
+   })
 }
 
 
@@ -72,7 +98,7 @@ const init=()=>{
        init
    }
   
-   })(Model)
+   })(Model,View)
   
    controller.init();
 /*
