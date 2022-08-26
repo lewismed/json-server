@@ -4,15 +4,18 @@ const api=(()=>{
     todospath='todos ';
 
 getTodos=()=>{
-fetch([this.baseUrl,this.todospath].join('/')).then(response => response.json())
+fetch([baseUrl,todospath].join('/')).then((response) => response.json()
+);
   //.then(json => console.log(json))
 
 deleteTodo=(id)=>{};
-return {getTodos,
-deleteTodo};
-})()
 
-api().getTodos( )
+return {
+    getTodos,
+deleteTodo,};
+}})()
+
+//api().getTodos( )
 
 
 
@@ -30,7 +33,7 @@ const view=(()=>{
 
 
 const model=((api)=>{
-   const {getTodos,deleteTodo=api;
+   const {getTodos,deleteTodo}=api;
    //const deleteTodo=api.deleteTodo;
 
    return{
@@ -48,14 +51,18 @@ deleteTodo
 /* ~~~~~~~~~~~~~~~~ Controller ~~~~~~~~~~~~~~~~ */
 
 const controller=(()=>{
-const init=()={
-   model.getTodos
+const init=()=>{
+   model.getTodos().then(console.log)
 }
 
 
-   return{}
+   return{
+       init
+   }
   
    })()
+  
+   controller.init()
 /*
 class Api{
 
