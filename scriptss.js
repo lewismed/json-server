@@ -1,7 +1,10 @@
 const Api=(()=>{
-
-    baseUrl='http://localhost:4232/posts/1'
-    todospath='todos ';
+   // http://localhost:4232/courseList
+    baseUrl='http://localhost:4232/courseList/1'
+    //'http://localhost:4232/posts/1'
+    //'http://localhost:4232/courseList/1'
+    //http://localhost:4232/posts/1'
+    todospath="courseList";
 
 getTodos=()=>
 fetch([baseUrl,todospath].join('/')).then((response) => response.json()
@@ -30,7 +33,7 @@ const createTmp=arr=>{
     let tmp=''
     arr.forEach(todo=>{
         tmp+=`              <li>
-        <span>${todo.title}</span>
+        <span>${todo.courseName}</span>
         <button>X</button>
       </li>
         `
@@ -86,9 +89,12 @@ const controller=((model,view)=>{
 const init=()=>{
     const todolist=document.querySelector(view.domstr.classlist)
 
-    //console.log(todolist)
+   // console.log(todolist)
    model.getTodos().then(todos=>{
+console.log(todos)
+
     const tmp=view.createTmp(todos);
+    console.log(tmp)
    view.render(todolist,tmp)
    })
 }
