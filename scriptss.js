@@ -32,6 +32,9 @@ const render=(ele,tmp)=>{
 const createTmp=arr=>{
     let tmp=''
     arr.forEach(todo=>{
+        if(todo.required==true ){todo.required="compulsory"}else{
+            todo.required="elective"
+        }
         tmp+=`              
       <td >
       <ul>${todo.courseName}</ul>
