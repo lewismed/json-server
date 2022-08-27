@@ -9,6 +9,12 @@
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
     />
+
+    <style>
+        table, th, td {
+          border: 1px solid;
+        }
+        </style>
   </head>
   <body>
     <div class="container">
@@ -26,21 +32,52 @@
           <input class="todolist__input" placeholder="input your todo here..." />
          
 
-            <table>
-                <tr>
-                  <th>Avaliable Courses</th>
-              
-                </tr>
-                <tr >
-                  <td id="nonselected_containter">
-                      <ul>tests</ul>
-                  <ul>course type</ul>
-                  <ul>course credit</ul></td>
-                  </td>
-                </tr>
-              
-              </table>
+          <table
+          class="table"
+          id="myTable"
+          data-toggle="table"
+          data-search="true"
+        >
+          <thead class="filters">
+            <tr>
+              <th >
+                name
+              </th>
+             
+            </tr>
+          </thead>
+          <tbody id="nonselected_containter">
+            <!-- Sample contacts-->
+            <tr>
+              <td>
+              <ul>tests</ul>
+              <ul>Admin</ul>
+              <ul>course credit</ul>
+              </td>
+              </tr>
+              <tr>
+              <td>
+              <ul>tests</ul>
+              <ul>Admin</ul>
+              <ul>course credit</ul>
+              </td>
+             
+         
+            </tr>
 
+           
+             <tr>
+             <td><ul>tests</ul>
+              <ul>Admin</ul>
+              <ul>course credit</ul></td>
+             </tr>
+             <tr>
+            <td>
+            <ul>tests</ul>
+              <ul>Admin</ul>
+              <ul>course credit</ul>
+              </td>
+  
             
           </ul>
         </section>

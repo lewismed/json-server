@@ -35,12 +35,16 @@ const createTmp=arr=>{
         if(todo.required==true ){todo.required="compulsory"}else{
             todo.required="elective"
         }
-        tmp+=`              
-      <td >
-      <ul>${todo.courseName}</ul>
-  <ul>${todo.credit}</ul>
-  <ul>${todo.required}</ul></td>
-  </td>`
+        tmp+=` 
+        <tr>
+        <td>
+        <ul>${todo.courseName}</ul>
+         <ul>${todo.credit}</ul>
+        <ul>${todo.required}</ul>
+        </td>
+       
+   
+      </tr>`
 
 
     })
