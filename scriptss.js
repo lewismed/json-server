@@ -32,11 +32,14 @@ const render=(ele,tmp)=>{
 const createTmp=arr=>{
     let tmp=''
     arr.forEach(todo=>{
-        tmp+=`              <li>
-        <span>${todo.courseName}</span>
-        <button>X</button>
-      </li>
-        `
+        tmp+=`              
+      <td >
+      <ul>${todo.courseName}</ul>
+  <ul>${todo.credit}</ul>
+  <ul>${todo.required}</ul></td>
+  </td>`
+
+
     })
     return tmp;
 }
