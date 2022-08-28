@@ -29,13 +29,19 @@ const View = (() => {
   const createTmp = (arr) => {
     let tmp = "";
 
+    
+
+
     arr.forEach((course) => {
+
+      if (course.required==true){
+        course.required="compulsory"} else{
+            course.required="Elective"
+        }
       tmp += `
             <li class="courseItem" id="${course.courseId}">
               <span class="name">${course.courseName}</span>
-              <span>Course type: ${
-                course.required ? "Cumpolsery" : "Elective"
-              }</span>
+              <span>Course type: ${course.required}</span>
               <span>Course credit: ${course.credit}</span>
             </li>
            
