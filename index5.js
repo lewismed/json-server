@@ -32,17 +32,17 @@ const View = (() => {
     
 
 
-    arr.forEach((course) => {
+    arr.forEach((classes) => {
 
-      if (course.required==true){
-        course.required="compulsory"} else{
-            course.required="Elective"
+      if (classes.required==true){
+        classes.required="compulsory"} else{
+            classes.required="Elective"
         }
       tmp += `
-            <li class="courseItem" id="${course.courseId}">
-              <span class="name">${course.courseName}</span>
-              <span>Course type: ${course.required}</span>
-              <span>Course credit: ${course.credit}</span>
+            <li class="courseItem" id="${classes.courseId}">
+              <span class="name">${classes.courseName}</span>
+              <span>Course type: ${classes.required}</span>
+              <span>Course credit: ${classes.credit}</span>
             </li>
            
           `;
