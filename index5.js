@@ -106,8 +106,9 @@ const Controller = ((model, view) => {
 
 
         let list = document.querySelectorAll("#notselectedCourse li");
-        for (let i = 0; i < lis.length; i++) {
+        for (let i = 0; i < list.length; i++) {
           let name = list[i].getElementsByClassName("name")[0].innerHTML;
+
           let t = list[i].innerHtml;
           Courses_take.forEach((select_Course) => {
             if (select_Course.courseName === name)
