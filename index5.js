@@ -95,8 +95,8 @@ const Model = ((api, view) => {
 
 const Controller = ((model, view) => {
   const transfer = new model.transfer();
-  let selectedCourses = [];
-  //let totalcredit = 0;
+  let Courses_take = [];
+  let totalcredit = 0;
 
   const selected_Btn = () => {
     const button = document.querySelector(view.domstr.button);
@@ -109,7 +109,7 @@ const Controller = ((model, view) => {
         for (let i = 0; i < lis.length; i++) {
           let name = list[i].getElementsByClassName("name")[0].innerHTML;
           let t = list[i].innerHtml;
-          selectedCourses.forEach((select_Course) => {
+          Courses_take.forEach((select_Course) => {
             if (select_Course.courseName === name)
 
 
@@ -118,8 +118,8 @@ const Controller = ((model, view) => {
         }
       }
 
-      const ulcontainer = document.querySelector(view.domstr.course2);
-      const tmp = view.createTmp(selectedCourses);
+      const ulcontainer = document.querySelector(view.domstr.second_course);
+      const tmp = view.createTmp(Courses_take);
       view.render(ulcontainer, tmp);
     });
   };

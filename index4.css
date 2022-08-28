@@ -78,12 +78,17 @@ border-style: solid;
     font-size: large;
     font-weight: bolder;
   }
-  #sbtn{
+  #select_button{
    margin-left: 2rem;
    padding: auto;
    align-items: center;
    width: 5rem;
   }
+
+
+
+
+
   .creditLabel{
     font-weight: bolder;
     margin-right: .5rem;
