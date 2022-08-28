@@ -19,7 +19,7 @@ const View = (() => {
   const domstr = {
     course: "#notselectedCourse",
     button: "#select_button",
-    course2: "#selectedCourse",
+    second_course: "#selectedCourse",
   };
 
   const render = (ele, tmp) => {
