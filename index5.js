@@ -39,7 +39,7 @@ const View = (() => {
             classes.required="Elective"
         }
       tmp += `
-            <li class="courseItem" id="${classes.courseId}">
+            <li class="classid" id="${classes.courseId}">
               <span class="name">${classes.courseName}</span>
               <span>Course type: ${classes.required}</span>
               <span>Course credit: ${classes.credit}</span>

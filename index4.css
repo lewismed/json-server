@@ -48,7 +48,7 @@ overflow: auto;
 border-style: solid;
   border-color: rgb(77, 75, 75);
 }
-.courseItem{
+.classid{
   text-align: center;
   border: solid;
   border-width: .1em ;
@@ -56,7 +56,7 @@ border-style: solid;
   padding: .5em .5em;
   z-index: 5;
 }
-.courseItem:hover{
+.classid:hover{
   background-color:rgb(149, 227, 199);
   text-decoration: none;
   align-items: center;
