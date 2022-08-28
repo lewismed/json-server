@@ -119,9 +119,9 @@ const Controller = ((model, view) => {
         }
       }
 
-      const ulcontainer = document.querySelector(view.domstr.second_course);
+      const list_container = document.querySelector(view.domstr.second_course);
       const tmp = view.createTmp(Courses_take);
-      view.render(ulcontainer, tmp);
+      view.render(list_container, tmp);
     });
   };
 
