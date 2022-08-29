@@ -1,12 +1,13 @@
 const Api = (() => {
     const baseUrl = "http://localhost:4232/courseList";
    
-    const getCourse = () =>
+    const gettodo = () =>
       fetch([baseUrl]).then((response) => response.json());
  
    
+
     return {
-     getCourse,
+     gettodo,
    
     };
   })();
@@ -18,7 +19,7 @@ const Api = (() => {
 const View = (() => {
   const domstr = {
     course: "#notselectedCourse",
-    button: "#select_button",
+    class_button: "#select_button",
     second_course: "#selectedCourse",
   };
 
@@ -40,7 +41,7 @@ const View = (() => {
         }
       tmp += `
             <li class="classid" id="${classes.courseId}">
-              <span class="name">${classes.courseName}</span>
+              <span class="class_name">${classes.courseName}</span>
               <span>Course type: ${classes.required}</span>
               <span>Course credit: ${classes.credit}</span>
             </li>
@@ -70,6 +71,9 @@ const Model = ((api, view) => {
     }
   }
 
+//console.log(Courses.courseName)
+
+
   class transfer {
     #courseList = [];
 
@@ -96,53 +100,78 @@ const Model = ((api, view) => {
 const Controller = ((model, view) => {
   const transfer = new model.transfer();
   let Courses_take = [];
-  let totalcredit = 0;
+  let totalcredits = 0;
 
-  const selected_Btn = () => {
-    const button = document.querySelector(view.domstr.button);
+  const select_Button = () => {
+    const button = document.querySelector(view.domstr.class_button);
+    
+   // let totalCredits=0
+    //let Courses_take=[]
     button.addEventListener("click", (event) => {
-      if (totalcredit < 18) {
+     
+       
+      let list = document.querySelectorAll("#notselectedCourse li");
+      for (let i = 0; i < list.length; i++) {
+        let class_name = list[i].getElementsByClassName("class_name")[0].innerHTML;
+
+        
+
+
+        Courses_take.forEach((select_Course) => {
+          if (select_Course.courseName!=class_name){
+            console.log(select_Course.courseName)
+          }
+          else{
+         
+
+
+            list[i].parentNode.removeChild(list[i]);// this will remove a node from he ree unless is no alreadl in he ree
+      }})
+       };
+      
 
 
 
-        let list = document.querySelectorAll("#notselectedCourse li");
-        for (let i = 0; i < list.length; i++) {
-          let name = list[i].getElementsByClassName("name")[0].innerHTML;
 
-          let t = list[i].innerHtml;
-          Courses_take.forEach((select_Course) => {
-            if (select_Course.courseName === name)
-
-
-              list[i].parentNode.removeChild(list[i]);
-          });
+const selectCourse = () => {
+    const list_container = document.querySelector(view.domstr.course);// this will give me acess to the different avalibale courses
+    list_container.addEventListener("click", (event) => {
+      if (event.target.classList.contains("classid")) {
+        let classList = event.target.classList;
+        let classes = transfer.courseList.find(
+          (e) => e.courseId == event.target.id
+        );
+        
+        
+        
+         //find where the courseid matches the id we are clickinng
         }
+
+        if (classList.contains("selected")) {
+          Courses_take =  Courses_take.filter((e) => {
+            return e.courseId != classes.courseId;
+          });
+          totalcredits =totalcredits- classes.credit;
+          event.target.classList.remove("selected");
+        } else {
+         
+          if (totalcredits + classes.credit > 18) {
+            alert("You cannot choose more than 18 credits in one semester!");
+          } else {
+            Courses_take.push(classes);
+            totalcredit += classes.credit;
+            event.target.classList.add("selected");
+            document.getElementById("total_sum").innerHTML = totalcredits;
+          }
+        }
+        const list_container = document.querySelector(view.domstr.course2);
+        const tmp = view.createTmp(Courses_take);
+        view.render(list_container, tmp);
       }
-
-      const list_container = document.querySelector(view.domstr.second_course);
-      const tmp = view.createTmp(Courses_take);
-      view.render(list_container, tmp);
-    });
-  };
+    )};
+  ;
 
 
 
-  const init = () => {
-    model.getCourse().then((course) => {
-      console.log(course);
-      transfer.courseList = course;
-    });
-  };
 
-  const run = () => {
-    init();
-    //selectCourse();
-    selected_Btn();
-  };
-  return {
-      run
-   ,
-  };
-})(Model, View);
 
-Controller.run();
