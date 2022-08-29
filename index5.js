@@ -142,7 +142,7 @@ const Controller = ((model, view) => {
 
 
 
-const selectCourse = () => {
+const selectclasses = () => {
     const list_container = document.querySelector(view.domstr.course);// this will give me acess to the different avalibale courses
     list_container.addEventListener("click", (event) => {
       if (event.target.classList.contains("classid")) {
@@ -252,7 +252,7 @@ const selectCourse = () => {
 
   const run = () => {
     init();
-    //selectCourse();
+    selectclasses();
     select_Button();
   };
   return {
