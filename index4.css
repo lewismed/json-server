@@ -69,6 +69,15 @@ border-style: solid;
     color: white;
    
   }
+
+  #select_button{
+   margin-left: 2rem;
+   padding: auto;
+   align-items: center;
+   width: 5rem;
+  }
+
+
  #items{
   display:flex;
   justify-content: center;
@@ -79,12 +88,6 @@ border-style: solid;
   #total{
     font-size: large;
     font-weight: bolder;
-  }
-  #select_button{
-   margin-left: 2rem;
-   padding: auto;
-   align-items: center;
-   width: 5rem;
   }
 
 
