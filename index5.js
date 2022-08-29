@@ -156,9 +156,9 @@ const selectclasses = () => {
          //find where the courseid matches the id we are clickinng
         }
 
-        if (classList.contains("selected")) {
+        if (classList.contains("select")) {
           Courses_take =  Courses_take.filter((e) => {
-            return e.courseId != classes.courseId;
+            return e.courseId != ""
           });
           
             
@@ -176,7 +176,7 @@ const selectclasses = () => {
           } else {
             Courses_take.push(classes);
             totalcredit += classes.credit;
-            event.target.classList.add("selected");
+            event.target.classList.add("select");
             document.getElementById("total_sum").innerHTML = totalcredits;
           }
         }
