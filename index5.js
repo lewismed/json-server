@@ -61,7 +61,7 @@ const View = (() => {
 
 //**============== Model=============== */
 const Model = ((api, view) => {
-  const { getCourse } = api;
+  const { gettodo } = api;
 
   class Courseses {
     constructor(courseName, courseCredit, courseType) {
@@ -90,7 +90,7 @@ const Model = ((api, view) => {
   }
 
   return {
-    getCourse,
+    gettodo,
     transfer,
   };
 })(Api, View);
@@ -170,6 +170,40 @@ const selectCourse = () => {
       }
     )};
   ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ const list_container = document.querySelector(view.domstr.second_course);
+      const tmp = view.createTmp(Courses_take);
+      view.render(list_container, tmp);
+   } )} 
+  ;
+;
+
+
+//totalCredits
+  //if (event.target.classList.contians(classid)){
+    ///check_selct=event.target.classList;
+    //class=transfer.#courselist.find(
+
+    //)
+  //}
+
 
 
 
