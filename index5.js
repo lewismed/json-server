@@ -209,3 +209,40 @@ const selectCourse = () => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  const init = () => {
+    model.gettodo().then((course) => {
+      console.log(course);
+      transfer.courseList = course;
+    });
+  };
+
+  const run = () => {
+    init();
+    //selectCourse();
+    select_Button();
+  };
+  return {
+      run
+   ,
+  };
+})(Model, View);
+
+Controller.run();
