@@ -32,7 +32,15 @@ header{
 header:hover{
   background-color:rgb(149, 227, 199);
 }
-.courseSelection{
+
+.selectedCourse{
+  height: 20em;
+width: 15rem;
+overflow: auto;
+border-style: solid;
+  border-color: rgb(77, 75, 75);
+}
+.course_selection_data{
   margin-right: 5em ;
   height: 20em;
 width: 15rem;
@@ -41,13 +49,7 @@ border-style: solid;
   border-color: rgb(77, 75, 75);
  
 }
-.selectedCourse{
-  height: 20em;
-width: 15rem;
-overflow: auto;
-border-style: solid;
-  border-color: rgb(77, 75, 75);
-}
+
 .classid{
   text-align: center;
   border: solid;
