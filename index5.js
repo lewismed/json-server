@@ -160,9 +160,16 @@ const selectCourse = () => {
           Courses_take =  Courses_take.filter((e) => {
             return e.courseId != classes.courseId;
           });
-          totalcredits =totalcredits- classes.credit;
-          event.target.classList.remove("selected");
-        } else {
+          
+            
+            
+            
+            
+            
+            
+            
+            
+            else {
          
           if (totalcredits + classes.credit > 18) {
             alert("You cannot choose more than 18 credits in one semester!");
