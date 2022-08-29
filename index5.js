@@ -1,16 +1,25 @@
-const Api = (() => {
-    const baseUrl = "http://localhost:4232/courseList";
-   
-    const gettodo = () =>
-      fetch([baseUrl]).then((response) => response.json());
- 
-   
+const Api=(()=>{
 
-    return {
-     gettodo,
-   
-    };
-  })();
+    baseUrl='http://localhost:4232/courseList/1'
+    //'http://localhost:4232/posts/1'
+    //'http://localhost:4232/courseList/1'
+    //http://localhost:4232/posts/1'
+    todospath="courseList";
+
+gettodo=()=>
+fetch([baseUrl,todospath].join('/')).then((response) => response.json()
+);
+  //.then(json => console.log(json))
+
+deleteTodo=(id)=>{};
+
+return {
+    getTodos,
+deleteTodo,};
+})();
+
+//api().getTodos( )
+
 
 
 
